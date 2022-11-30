@@ -1,0 +1,75 @@
+Requirements
+
+EC2 Instance
+
+Dockerhub account or ECR
+
+Visual Studio Code
+
+PART 1
+
+Clone the repository
+
+cd into the new directory
+
+Install the latest version of node else you'd have errors
+
+To install the latest node version: (make sure you're in the project folder)
+
+a. curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+b. nvm install v17.3.0
+
+node --version
+
+Install the latest version of npm
+
+a. sudo npm install -g npm@9.1.2
+
+npm --version
+
+Ensure all scripts are updated:
+
+a. npm install react-scripts@latest
+
+PART 2
+
+npm run build
+
+npm start (check your browser using localhost:3000)
+
+PART 3
+
+CREATE A DOCKERFILE in project directory
+
+sudo touch Dockerfile
+
+sudo nano Dockerfile
+
+**COPY (. = from current directory to .=root directory)
+
+PART 4
+
+RUN A DOCKER BUILD
+
+delete node modules folder and build folder
+
+rm -rf node_modules
+
+rm -rf build
+
+sudo docker build -t delalixx/techreactapp .
+
+RUN THE NEW APP/IMAGE
+
+docker run -p 3000:3000 delalixx/techreactapp
+
+Check your browser using your instance https://ipaddress:3000
+
+PART 4
+
+PUSH TO DOCKER HUB OR ECR
+
+Login into dockerhub via your linux instance
+
+docker push delalixx/techreactapp:latest
